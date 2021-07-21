@@ -1,11 +1,24 @@
-import { Box, AppBar, Toolbar, Typography } from "@material-ui/core";
+import React from "react";
+import { Box, AppBar, Toolbar, Avatar, styled } from "@material-ui/core";
+import { BoldText } from "../theme/Font";
+import { ThemeChanger } from "../theme";
 
-export const Header = () => {
+const Bar = styled(AppBar)({
+  boxShadow: "none"
+});
+
+export const Header = React.memo(() => {
   return (
-    <AppBar>
+    <Bar>
       <Toolbar>
-        <Typography variant="h6">TECHI BLOG</Typography>
+        <Box flex={2}>
+          <BoldText variant="h5">TECHI BLOG</BoldText>
+        </Box>
+        <Box display="flex" flex={1} justifyContent="flex-end">
+          <ThemeChanger />
+          <Avatar alt="Tetsuya Yamada" src="/icon.jpg" />
+        </Box>
       </Toolbar>
-    </AppBar>
+    </Bar>
   );
-};
+});
