@@ -1,4 +1,4 @@
-// import "@fontsource/roboto";
+import "@fontsource/roboto";
 
 import { ThemeOptions } from "@material-ui/core";
 
