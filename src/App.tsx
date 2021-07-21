@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { Header, lightTheme, darkTheme } from "./components";
 import { ThemeContext, ThemeProvider } from "./services/contexts";
-import { createTheme } from "@material-ui/core";
+import { createTheme, Box } from "@material-ui/core";
+import { Routing } from "./services/routing";
 
 export default function App() {
   let { isDarkMode } = useContext(ThemeContext);
@@ -11,6 +12,9 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
+      <Box mt={8}>
+        <Routing />
+      </Box>
     </ThemeProvider>
   );
 }
