@@ -1,2 +1,2 @@
 export { Header } from "./navbar";
-export { lightTheme, darkTheme } from "./theme";
+export { lightTheme, darkTheme, projectTheme } from "./theme";

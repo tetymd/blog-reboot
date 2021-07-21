@@ -1,7 +1,8 @@
-import { createTheme } from "@material-ui/core";
 // import "@fontsource/roboto";
 
-export const lightTheme = createTheme({
+import { ThemeOptions } from "@material-ui/core";
+
+export const lightTheme: ThemeOptions = {
   palette: {
     type: "light",
     text: {
@@ -15,13 +16,6 @@ export const lightTheme = createTheme({
     fontFamily: "'roboto'"
   },
   overrides: {
-    // MuiCssBaseline: {
-    //   "@global": {
-    //     body: {
-    //       backgroundColor: "rgb(255, 255, 255)"
-    //     }
-    //   }
-    // },
     MuiAppBar: {
       colorPrimary: {
         color: "#333344",
@@ -29,9 +23,9 @@ export const lightTheme = createTheme({
       }
     }
   }
-});
+};
 
-export const darkTheme = createTheme({
+export const darkTheme: ThemeOptions = {
   palette: {
     type: "dark",
     text: {
@@ -45,13 +39,6 @@ export const darkTheme = createTheme({
     fontFamily: "'roboto'"
   },
   overrides: {
-    // MuiCssBaseline: {
-    //   "@global": {
-    //     body: {
-    //       backgroundColor: "rgb(31, 41, 55)"
-    //     }
-    //   }
-    // },
     MuiAppBar: {
       colorPrimary: {
         color: "rgb(229, 231, 235)",
@@ -59,7 +46,7 @@ export const darkTheme = createTheme({
       }
     }
   }
-});
+};
 
 export { BoldText } from "./Font";
 export { ThemeChanger } from "./ThemeChanger";

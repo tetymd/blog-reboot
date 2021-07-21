@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import { ThemeProvider as Provider, CssBaseline } from "@material-ui/core";
+import { lightTheme } from "../../components";
 
 export const ThemeContext = createContext(
   {} as {
@@ -15,7 +16,9 @@ export const ThemeContextProvider = ({ children, ...res }: any) => {
     setIsDarkMode
   };
   return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>
+      <Provider theme={lightTheme}>{children}</Provider>
+    </ThemeContext.Provider>
   );
 };
 

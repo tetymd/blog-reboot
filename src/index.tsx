@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeContext, ThemeContextProvider } from "./services/contexts";
+import { ThemeContextProvider } from "./services/contexts";
 
 ReactDOM.render(
   <React.StrictMode>
