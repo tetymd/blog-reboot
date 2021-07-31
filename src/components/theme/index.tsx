@@ -1,5 +1,4 @@
 import "@fontsource/roboto";
-
 import { ThemeOptions } from "@material-ui/core";
 
 export const lightTheme: ThemeOptions = {
@@ -20,6 +19,17 @@ export const lightTheme: ThemeOptions = {
       colorPrimary: {
         color: "#333344",
         backgroundColor: "rgb(255, 255, 255, 0.3)"
+      },
+      root: {
+        backdropFilter: "blur(10px)"
+      }
+    },
+    MuiCard: {
+      root: {
+        boxShadow: "none",
+        "&:hover": {
+          backgroundColor: "rgba(204,204,255,0.6)"
+        }
       }
     }
   }
@@ -32,7 +42,8 @@ export const darkTheme: ThemeOptions = {
       primary: "rgb(229, 231, 235)"
     },
     background: {
-      default: "rgb(31, 41, 55)"
+      default: "rgb(31, 41, 55)",
+      paper: "rgb(31, 41, 55)"
     }
   },
   typography: {
@@ -43,6 +54,17 @@ export const darkTheme: ThemeOptions = {
       colorPrimary: {
         color: "rgb(229, 231, 235)",
         backgroundColor: "rgb(31, 41, 55, 0.3)"
+      },
+      root: {
+        backdropFilter: "blur(10px)"
+      }
+    },
+    MuiCard: {
+      root: {
+        boxShadow: "none",
+        "&:hover": {
+          backgroundColor: "rgba(204,204,255,0.6)"
+        }
       }
     }
   }
