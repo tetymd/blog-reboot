@@ -41,7 +41,7 @@ export const UserInfo = () => {
               height: 100
             }}
             alt="Tetsuya Yamada"
-            src="./icon.jpg"
+            src="/icon.jpg"
           />
         </Box>
         <Box display="flex" flexDirection="column" alignItems="center">

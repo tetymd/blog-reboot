@@ -11,10 +11,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
-      <Box mt={8}>
-        <Routing />
-      </Box>
+      <Routing />
     </ThemeProvider>
   );
 }

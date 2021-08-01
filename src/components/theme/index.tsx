@@ -26,10 +26,7 @@ export const lightTheme: ThemeOptions = {
     },
     MuiCard: {
       root: {
-        boxShadow: "none",
-        "&:hover": {
-          backgroundColor: "rgba(204,204,255,0.6)"
-        }
+        boxShadow: "none"
       }
     }
   }
@@ -61,10 +58,7 @@ export const darkTheme: ThemeOptions = {
     },
     MuiCard: {
       root: {
-        boxShadow: "none",
-        "&:hover": {
-          backgroundColor: "rgba(204,204,255,0.6)"
-        }
+        boxShadow: "none"
       }
     }
   }

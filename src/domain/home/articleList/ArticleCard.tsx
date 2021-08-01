@@ -1,9 +1,25 @@
-import { Box, Card, CardContent, Typography } from "@material-ui/core";
+import {
+  Box,
+  Card,
+  CardContent,
+  makeStyles,
+  Typography
+} from "@material-ui/core";
 import { motion } from "framer-motion";
+import { useHistory } from "react-router-dom";
 import { BoldText } from "../../../components";
 
-export const ArticleCard = ({ title, tags, date }: any) => {
-  console.log(tags);
+const useStyles = makeStyles({
+  root: {
+    "&:hover": {
+      backgroundColor: "rgba(204,204,255,0.6)"
+    }
+  }
+});
+
+export const ArticleCard = ({ articleId, title, tags, date }: any) => {
+  const history = useHistory();
+  const classes = useStyles();
   const TagList = tags.map((tag: any) => {
     return (
       <Box mr={1} key={tag}>
@@ -11,9 +27,14 @@ export const ArticleCard = ({ title, tags, date }: any) => {
       </Box>
     );
   });
+
+  const handleLink = (path: any) => history.push(path);
   return (
     <motion.div whileTap={{ scale: 0.98 }}>
-      <Card>
+      <Card
+        className={classes.root}
+        onClick={() => handleLink(`/articles/${articleId}`)}
+      >
         <CardContent>
           <BoldText variant="h6">{title}</BoldText>
           <Box display="flex">{TagList}</Box>
