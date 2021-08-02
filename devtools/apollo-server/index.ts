@@ -24,7 +24,6 @@ async function main() {
         });
         const hasNextPage =
           args.take + args.skip >= (await prisma.post.count()) ? false : true;
-        console.log(await prisma.post.count());
         return {
           posts,
           hasNextPage: hasNextPage

@@ -11,7 +11,7 @@ export const Articles = () => {
           <Editor />
         </Box>
       ) : (
-        <Box width={{ xs: "100%", sm: "90%", md: "60%", lg: "55%", xl: "50%" }}>
+        <Box width={{ xs: "100%", sm: "90%", md: "70%", lg: "60%", xl: "50%" }}>
           <Viewer />
         </Box>
       )}
