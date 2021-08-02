@@ -1,0 +1,33 @@
+type User {
+  id: ID
+  userId: String
+  name: String
+  email: String
+  createdAt: String
+  role: String
+  posts: [Post!]
+}
+type Post {
+  id: ID
+  title: String
+  content: String
+  createdAt: String
+  authorId: ID
+  updatedAt: String
+  published: Boolean
+}
+type Posts {
+  posts: [Post!]
+  hasNextPage: Boolean
+}
+type Query {
+  allUsers: [User!]!
+  getPosts(take: Int, skip: Int): Posts!
+  getUserById(id: ID): User!
+  getPostById(id: ID): Post!
+}
+type Mutation {
+  createPost(title: String, content: String, authorId: ID): Post!
+  updatePost(title: String, content: String, postId: ID): Post!
+  deletePost(postId: ID): String
+}
