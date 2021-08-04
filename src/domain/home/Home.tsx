@@ -1,6 +1,7 @@
 import React from "react";
 import { ArticleList } from "./articleList";
 import { Box } from "@material-ui/core";
+import { Query, GET_POSTS } from "../../services/apollo";
 
 export const Home = () => {
   return (
@@ -10,7 +11,14 @@ export const Home = () => {
       alignContent="center"
       alignItems="center"
     >
-      <ArticleList />
+      <Query
+        query={GET_POSTS}
+        variables={{ take: 8, skip: 0 }}
+        errorPolicy="all"
+        notifyOnNetworkStatusChange={true}
+      >
+        {ArticleList}
+      </Query>
     </Box>
   );
 };

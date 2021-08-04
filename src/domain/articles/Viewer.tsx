@@ -14,20 +14,27 @@ puts "hello"
 ~~~
 `;
 
-export const Viewer = () => {
+export const Viewer = ({ loading, data }: any) => {
+  console.log(loading, data);
   return (
     <Box width="100%">
       <Card>
         <CardContent>
-          <Box display="flex" flexDirection="column" pl={1} pr={1}>
-            <Box>
-              <BoldText variant="h4">title</BoldText>
+          {loading ? (
+            <p>loading</p>
+          ) : (
+            <Box display="flex" flexDirection="column" pl={1} pr={1}>
+              <Box>
+                <BoldText variant="h4">{data.getPostById.title}</BoldText>
+              </Box>
+              <Box display="flex" justifyContent="flex-end">
+                <Typography>
+                  {new Date(data.getPostById.createdAt * 1).toISOString()}
+                </Typography>
+              </Box>
+              <MDEditor.Markdown source={data.getPostById.content} />
             </Box>
-            <Box display="flex" justifyContent="flex-end">
-              <Typography>2021-08-01</Typography>
-            </Box>
-            <MDEditor.Markdown source={value} />
-          </Box>
+          )}
         </CardContent>
       </Card>
     </Box>

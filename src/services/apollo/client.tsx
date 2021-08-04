@@ -28,6 +28,6 @@ const cacheConfig: InMemoryCacheConfig = {
 
 export const client = new ApolloClient({
   // link: link,
-  uri: "http://localhost:4000",
+  uri: "http://localhost:4000/",
   cache: new InMemoryCache(cacheConfig)
 });

@@ -2,10 +2,13 @@ import { gql } from "@apollo/client";
 
 export const GET_POSTS = gql`
   query getPosts($take: Int, $skip: Int) {
-    allPosts(take: $take, skip: $skip) {
-      id
-      title
-      createdAt
+    getPosts(take: $take, skip: $skip) {
+      posts {
+        id
+        title
+        createdAt
+      }
+      hasNextPage
     }
   }
 `;
