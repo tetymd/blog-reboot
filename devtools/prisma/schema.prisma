@@ -27,9 +27,16 @@ model Post {
   content   String   @db.Text
   author    User     @relation(fields: [authorId], references: [id])
   authorId  Int
+  tags      Tag[]
   createdAt DateTime @db.DateTime(0) @default(now())
   updatedAt DateTime @db.DateTime(0) @updatedAt
   published Boolean  @default(false)
+}
+
+model Tag {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(255)
+  posts Post[]
 }
 
 enum Role {
