@@ -10,15 +10,15 @@ const cacheConfig: InMemoryCacheConfig = {
   typePolicies: {
     Query: {
       fields: {
-        allPosts: {
+        getPosts: {
           read(existing) {
-            console.log("existing:", existing);
+            console.log("read existing:", existing);
             return existing;
           },
           merge(incoming: any | undefined[], existing = []) {
             console.log("existing:", existing);
             console.log("incoming:", incoming);
-            return incoming ? [...existing, ...incoming] : [...existing];
+            return incoming ? [existing, incoming] : [existing];
           }
         }
       }

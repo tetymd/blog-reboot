@@ -18,15 +18,20 @@ const useStyles = makeStyles({
 });
 
 export const ArticleCard = ({ articleId, title, tags, date }: any) => {
+  console.log(title, tags);
+  // console.log(tags.length);
   const history = useHistory();
   const classes = useStyles();
-  const TagList = tags.map((tag: any) => {
-    return (
-      <Box mr={1} key={tag}>
-        <Typography variant="body2">{tag}</Typography>
-      </Box>
-    );
-  });
+  const TagList =
+    tags.length > 0
+      ? tags.map((tag: any) => {
+          return (
+            <Box mr={1} key={tag}>
+              <Typography variant="body2">{tag.name}</Typography>
+            </Box>
+          );
+        })
+      : null;
 
   const handleLink = (path: any) => history.push(path);
   return (
@@ -37,7 +42,7 @@ export const ArticleCard = ({ articleId, title, tags, date }: any) => {
       >
         <CardContent>
           <BoldText variant="h6">{title}</BoldText>
-          <Box display="flex">{TagList}</Box>
+          {tags.length > 0 ? <Box display="flex">{TagList}</Box> : null}
           <Box mt={2} display="flex" justifyContent="flex-end">
             <Typography variant="caption">{date}</Typography>
           </Box>

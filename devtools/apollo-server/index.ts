@@ -16,6 +16,9 @@ async function main() {
       getPosts: async (_: any, args: { take: number; skip: number }) => {
         console.log(args);
         const posts = await prisma.post.findMany({
+          include: {
+            tags: true
+          },
           skip: args.skip,
           take: args.take,
           orderBy: {
@@ -38,7 +41,10 @@ async function main() {
       getPostById: (_: any, args: { id: number }) => {
         const id = +args.id;
         return prisma.post.findUnique({
-          where: { id }
+          where: { id },
+          include: {
+            tags: true
+          }
         });
       }
     },

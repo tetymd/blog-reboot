@@ -6,6 +6,9 @@ export const GET_POSTS = gql`
       posts {
         id
         title
+        tags {
+          name
+        }
         createdAt
       }
       hasNextPage
@@ -19,6 +22,9 @@ export const GET_POST = gql`
       id
       title
       content
+      tags {
+        name
+      }
       createdAt
       authorId
       updatedAt

@@ -10,6 +10,7 @@ import {
 import MDEditor from "@uiw/react-md-editor";
 
 export const Editor = ({ loading, data }: any) => {
+  console.log(data);
   return (
     <Box width="100%">
       <Card>
