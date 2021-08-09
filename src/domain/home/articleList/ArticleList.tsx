@@ -8,14 +8,15 @@ export const ArticleList = ({ loading, data }: any) => {
       {loading ? (
         <p>loading</p>
       ) : (
-        data.getPosts[0].posts.map((item: any) => {
+        data.getPosts[0].posts.map((item: any, index: number) => {
+          console.log(index);
           return (
             <ArticleCard
               articleId={item.id}
               title={item.title}
               tags={item.tags}
               date={new Date(item.createdAt * 1).toISOString()}
-              key={item.id}
+              key={index}
             />
           );
         })

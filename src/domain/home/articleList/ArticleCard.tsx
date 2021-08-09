@@ -24,9 +24,9 @@ export const ArticleCard = ({ articleId, title, tags, date }: any) => {
   const classes = useStyles();
   const TagList =
     tags.length > 0
-      ? tags.map((tag: any) => {
+      ? tags.map((tag: any, index: number) => {
           return (
-            <Box mr={1} key={tag}>
+            <Box mr={1} key={index}>
               <Typography variant="body2">{tag.name}</Typography>
             </Box>
           );

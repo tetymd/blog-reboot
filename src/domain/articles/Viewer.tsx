@@ -27,7 +27,8 @@ export const Viewer = ({ loading, data }: any) => {
               <Box>
                 <BoldText variant="h4">{data.getPostById.title}</BoldText>
               </Box>
-              <Box display="flex" justifyContent="flex-end">
+              <TagList tags={data.getPostById.tags} />
+              <Box display="flex" mt={1} mb={3} justifyContent="flex-end">
                 <Typography>
                   {new Date(data.getPostById.createdAt * 1).toISOString()}
                 </Typography>
@@ -38,5 +39,26 @@ export const Viewer = ({ loading, data }: any) => {
         </CardContent>
       </Card>
     </Box>
+  );
+};
+
+const TagList = ({ tags }: any) => {
+  const hasTags = tags.length > 0 ? true : false;
+  console.log(hasTags, tags);
+  return (
+    <div>
+      {hasTags && (
+        <Box display="flex" mt={2}>
+          {tags.map((tag: any, index: number) => {
+            console.log(index);
+            return (
+              <Box mr={1} key={index}>
+                <Typography>{tag.name}</Typography>
+              </Box>
+            );
+          })}
+        </Box>
+      )}
+    </div>
   );
 };
