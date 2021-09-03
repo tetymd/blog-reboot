@@ -34,8 +34,8 @@ const EditorMain = ({ data }: any) => {
   );
 
   const handleSubmit = useCallback(() => {
-    console.log(title, content);
-  }, [title, content]);
+    console.log(title, tags, content);
+  }, [title, tags, content]);
 
   console.log(tags);
 

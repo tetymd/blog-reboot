@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 export const Articles = () => {
   const params = useParams();
-  const isAuth = false;
+  const isAuth = true;
   return (
     <Box display="flex" justifyContent="center">
       {isAuth ? (

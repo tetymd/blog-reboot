@@ -29,11 +29,17 @@ type Posts {
 type Query {
   allUsers: [User!]!
   getPosts(take: Int, skip: Int): Posts!
+  getTags: [Tag]
   getUserById(id: ID): User!
   getPostById(id: ID): Post!
 }
 type Mutation {
-  createPost(title: String, content: String, authorId: ID): Post!
+  createPost(
+    title: String
+    content: String
+    authorId: ID
+    tags: [String]
+  ): Post!
   updatePost(title: String, content: String, postId: ID): Post!
   deletePost(postId: ID): String
 }

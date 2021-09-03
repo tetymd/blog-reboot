@@ -32,6 +32,18 @@ async function main() {
           hasNextPage: hasNextPage
         };
       },
+      getTags: async (_: any) => {
+        const tags = await prisma.tag.findMany({
+          where: {
+            OR: [{ name: "react" }, { name: "typescript" }]
+          },
+          include: {
+            posts: true
+          }
+        });
+        console.log(tags);
+        return tags;
+      },
       getUserById: (_: any, args: { id: number }) => {
         const id = +args.id;
         return prisma.user.findUnique({
@@ -49,16 +61,25 @@ async function main() {
       }
     },
     Mutation: {
-      createPost: (
+      createPost: async (
         _: any,
         args: {
           title: string;
           content: string;
           authorId: number;
+          tags: string[];
         }
       ) => {
         const id = +args.authorId;
-        return prisma.post.create({
+        await prisma.tag.findMany({
+          where: {
+            OR: args.tags.map((tagName: string) => ({ name: tagName }))
+          }
+        });
+        await prisma.tag.createMany({
+          data: args.tags.map((tagName: string) => ({ name: tagName }))
+        });
+        await prisma.post.create({
           data: {
             title: args.title,
             content: args.content,

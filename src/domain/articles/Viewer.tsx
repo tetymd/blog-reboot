@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { Box, Card, CardContent, Typography } from "@material-ui/core";
 import { BoldText } from "../../components";
 import MDEditor from "@uiw/react-md-editor";
+import { ThemeContext } from "../../services/contexts";
 
 const value = `
 # hello
@@ -48,15 +50,50 @@ const TagList = ({ tags }: any) => {
   return (
     <div>
       {hasTags && (
-        <Box display="flex" mt={2}>
+        <Box display="flex" mt={3}>
           {tags.map((tag: any, index: number) => {
             console.log(index);
-            return (
-              <Box mr={1} key={index}>
-                <Typography>{tag.name}</Typography>
-              </Box>
-            );
+            return <Tag name={tag.name} key={index} />;
           })}
+        </Box>
+      )}
+    </div>
+  );
+};
+
+const Tag = ({ name }: any) => {
+  const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
+  return (
+    <div>
+      {isDarkMode ? (
+        <Box
+          mr={1}
+          pl={1}
+          pr={1}
+          pt={0.5}
+          pb={0.5}
+          style={{
+            color: "rgb(31, 41, 55)",
+            background: "rgb(229, 231, 235)",
+            borderRadius: "0.3em"
+          }}
+        >
+          <Typography>{name}</Typography>
+        </Box>
+      ) : (
+        <Box
+          mr={1}
+          pl={1}
+          pr={1}
+          pt={0.5}
+          pb={0.5}
+          style={{
+            color: "rgb(229, 231, 235)",
+            background: "rgb(31, 41, 55)",
+            borderRadius: "0.3em"
+          }}
+        >
+          <Typography>{name}</Typography>
         </Box>
       )}
     </div>
